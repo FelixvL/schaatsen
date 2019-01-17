@@ -6,10 +6,23 @@ public class Demo{
 		team1.naam = "white walker";
 		Team team2 = new Team();
 		team2.naam = "Ice Ice Babys";
+		Team team3 = new Team();
+		team3.naam = "IceCreamers";
+		Team team4 = new Team();
+		team4.naam = "BladeRunners";
 		Wedstrijd wedstrijd = new Wedstrijd(team1, team2);
 		wedstrijd.aankondigen();
 		wedstrijd.spelen();
 		wedstrijd.winnaarBekendMaken();
+		Wedstrijd wedstrijd2 = new Wedstrijd(team3, team4);
+		wedstrijd2.aankondigen();
+		wedstrijd2.spelen();
+		wedstrijd2.winnaarBekendMaken();
+		System.out.println("Finale gaat beginnen");
+		Wedstrijd wedstrijd3 = new Wedstrijd(wedstrijd.winnaar,wedstrijd2.winnaar);
+		wedstrijd3.aankondigen();
+		wedstrijd3.spelen();
+		wedstrijd3.winnaarBekendMaken();
 	}
 }
 class Wedstrijd{
@@ -23,10 +36,13 @@ class Wedstrijd{
 	public void winnaarBekendMaken() {
 		if(team1.score > team2.score) {
 			System.out.println(team2.naam+" heeft gewonnen met de score"+team2.score);
+			winnaar = team2;
 		}else if(team1.score < team2.score){
 			System.out.println(team1.naam+" heeft gewonnen met de score"+team1.score);			
+			winnaar = team1;
 		}else if(team1.score == team2.score) {
 			System.out.println("Iedereen heeft gewonnen.");
+			spelen();
 		}
 		
 	}
