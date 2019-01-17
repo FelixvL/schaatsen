@@ -18,17 +18,21 @@ public class Demo{
 		wedstrijd2.aankondigen();
 		wedstrijd2.spelen();
 		wedstrijd2.winnaarBekendMaken();
+		
+		System.out.println("Troostfinale gaat beginnen");
+		Wedstrijd wedstrijd4 = new Wedstrijd(wedstrijd.verliezerGeven(), wedstrijd2.verliezerGeven());
+		wedstrijd4.aankondigen();
+		wedstrijd4.spelen();
+		wedstrijd4.winnaarBekendMaken();
 		System.out.println("Finale gaat beginnen");
+
 		Wedstrijd wedstrijd3 = new Wedstrijd(wedstrijd.winnaar,wedstrijd2.winnaar);
 		wedstrijd3.aankondigen();
 		wedstrijd3.spelen();
 		wedstrijd3.winnaarBekendMaken();
 		Team teamGoud = wedstrijd3.winnaar;
 		Team teamZilver = wedstrijd3.verliezerGeven();
-		Wedstrijd wedstrijd4 = new Wedstrijd(wedstrijd.verliezerGeven(), wedstrijd2.verliezerGeven());
-		wedstrijd4.aankondigen();
-		wedstrijd4.spelen();
-		wedstrijd4.winnaarBekendMaken();
+
 		Team teamBrons = wedstrijd4.winnaar;
 		Ceremonie c = new Ceremonie(teamGoud, teamZilver, teamBrons);
 		c.uitkeren();
